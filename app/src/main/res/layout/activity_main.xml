@@ -35,29 +35,55 @@
             android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="-4.2pt">
+            android:layout_marginBottom="-4.5pt">
 
             <Button
                 android:id="@+id/btnAC"
                 android:layout_width="30pt"
                 android:layout_height="30pt"
-                android:layout_marginRight="1pt"
-                android:layout_weight="0.9"
+                android:layout_marginRight="1.9pt"
+                android:layout_weight="1.1"
                 android:backgroundTint="@color/gray"
                 android:onClick="btnClear"
                 android:text="AC"
                 android:textColor="@color/black" />
+            <Button
+                android:text="+/-"
+                android:backgroundTint="@color/gray"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_marginTop="1.2dp"
+                android:id="@+id/buPlusMinus"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:onClick="btnNumEvent"
+                android:layout_marginRight="1pt"/>
+
+            <Button
+                android:id="@+id/buPer"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_marginRight="1pt"
+                android:layout_weight="1"
+                android:layout_marginTop="1.2dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/gray"
+                android:onClick="btnPercentEvent"
+                android:text="%"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnSlash"
                 android:layout_width="30pt"
                 android:layout_height="30pt"
                 android:layout_marginTop="1.5dp"
-                android:layout_weight="0.17"
+                android:layout_weight="1.1"
                 android:backgroundTint="@color/orange"
                 android:onClick="btnOperEvent"
                 android:text="/"
                 android:textSize="18sp" />
+
         </TableRow>
 
         <TableRow

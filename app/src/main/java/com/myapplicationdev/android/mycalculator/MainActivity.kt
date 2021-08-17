@@ -12,13 +12,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    var isNewOp = true
+    var checkNewOper = true
     var dot = false
+    var plusMinus = "+"
     fun btnNumEvent(view: View) {
-        if (isNewOp) {
+        if (checkNewOper) {
             etShowNumber.setText("")
         }
-        isNewOp = false
+        checkNewOper = false
         val btnSelect = view as Button
         var buClickValue: String = etShowNumber.text.toString()
         when (btnSelect.id) {
@@ -58,7 +59,17 @@ class MainActivity : AppCompatActivity() {
                 }
                 dot = true
             }
+            buPlusMinus.id -> {
+                if (plusMinus == "+") {
+                    buClickValue = "-" + buClickValue
+                    plusMinus = "-"
 
+                }else if(plusMinus == "-") {
+                    buClickValue = buClickValue.replace("-", "")
+                    plusMinus = "+"
+                }
+//                plusMinus = "+"
+            } 
         }
         etShowNumber.setText(buClickValue)
     }
@@ -70,10 +81,11 @@ class MainActivity : AppCompatActivity() {
         val buSelect = view as Button
         when (buSelect.id) {
             btnMult.id -> {
-                op = "X"
+                op = "*"
             }
             btnSlash.id -> {
-                op = "÷"
+                op = "/"
+
             }
             btnMinus.id -> {
                 op = "-"
@@ -81,9 +93,10 @@ class MainActivity : AppCompatActivity() {
             btnAdd.id -> {
                 op = "+"
             }
+
         }
         oldNumber = etShowNumber.text.toString()
-        isNewOp = true
+        checkNewOper = true
         dot = false
     }
 
@@ -91,10 +104,10 @@ class MainActivity : AppCompatActivity() {
         val newNumber = etShowNumber.text.toString()
         var finalNumber: Double? = null
         when (op) {
-            "X" -> {
+            "*" -> {
                 finalNumber = oldNumber.toDouble() * newNumber.toDouble()
             }
-            "÷" -> {
+            "/" -> {
                 finalNumber = oldNumber.toDouble() / newNumber.toDouble()
             }
             "-" -> {
@@ -105,12 +118,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
         etShowNumber.setText(finalNumber.toString())
-        isNewOp = true
+        checkNewOper = true
     }
 
     fun btnClear(view: View) {
         etShowNumber.setText("")
-        isNewOp = true
+        checkNewOper = true
         dot = false
     }
+
+    fun btnPercentEvent(view: View) {
+        val number = (etShowNumber.text.toString().toDouble()) / 100
+        etShowNumber.setText(number.toString())
+        checkNewOper = true
+    }
+
 }
